@@ -14,3 +14,8 @@ dependencies {
     compile ('io.appium:java-client:2.1.0')
     compile group: 'org.gebish', name: 'geb-junit4', version: '0.10.0'
 }
+
+task hello(type:Exec) {
+    workingDir '/Users/maretskakirana/Documents/Proj_Doc/QA Works Area/Proj Doc/Appium-Automation/appium'
+    commandLine 'node', '.'
+}
