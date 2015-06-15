@@ -19,17 +19,18 @@ import java.util.concurrent.TimeUnit
 class Initializations {
     static def WebDriver driver
 
-    static WebDriver createAppiumInstance() {
+    static void createAppiumInstance() {
         DesiredCapabilities capabilities = new DesiredCapabilities()
             capabilities.setCapability(MobileCapabilityType.PLATFORM, SampleModules.PLATFORM)
             capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, SampleModules.DEVICEVERSION)
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, SampleModules.DEVICENAME)
             capabilities.setCapability(MobileCapabilityType.APP, SampleModules.APPPATH)
+            capabilities.setCapability("autoAcceptAlerts", true)
+            capabilities.setCapability("waitForAppActivity", true)
             driver = new IOSDriver(new URL("http://localhost:4723/wd/hub"), capabilities)
 
             driver.setFileDetector(new LocalFileDetector())
-            wait(8000)
-            return driver
+            driver.manage().timeouts().implicitlyWait(SampleModules.IMPLICITWAIT, TimeUnit.SECONDS)
     }
 
     @BeforeClass

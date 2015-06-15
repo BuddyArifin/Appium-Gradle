@@ -5,7 +5,7 @@ package PageObject.Modules
  */
 class SampleModules {
     static def APPPATH = "/Users/maretskakirana/Documents/Deals Finder.app"
-    static def IMPLICITWAIT = 10
+    static def IMPLICITWAIT = 50
     static def DEVICENAME = "iPhone Simulator"
     static def PLATFORM = "iOS"
     static def DEVICEVERSION = "8.3"
